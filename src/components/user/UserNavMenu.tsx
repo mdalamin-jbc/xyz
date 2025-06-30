@@ -2,7 +2,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiHome, FiImage, FiVideo, FiGift, FiEdit, FiUser, FiLogOut, FiMenu } from "react-icons/fi";
+import {
+  FiHome,
+  FiImage,
+  FiVideo,
+  FiGift,
+  FiEdit,
+  FiUser,
+  FiLogOut,
+  FiMenu,
+} from "react-icons/fi";
 import { cn } from "@/utils/function/cn";
 import LogoutButton from "@/components/logout/Logout";
 
@@ -35,7 +44,8 @@ const UserNavMenu = () => {
                 <span
                   className={cn(
                     "flex items-center gap-2 px-3 py-2 rounded-full transition-colors cursor-pointer text-white hover:bg-blue-400/20 hover:text-blue-300",
-                    pathname === item.href && "bg-blue-400/30 text-blue-200 font-semibold"
+                    pathname === item.href &&
+                      "bg-blue-400/30 text-blue-200 font-semibold"
                   )}
                 >
                   {item.icon}
@@ -43,7 +53,7 @@ const UserNavMenu = () => {
                 </span>
               </Link>
             ))}
-            <LogoutButton />
+            <LogoutButton>Logout</LogoutButton>
           </div>
           {/* Mobile Hamburger */}
           <div className="md:hidden flex items-center">
@@ -59,7 +69,10 @@ const UserNavMenu = () => {
       </div>
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-black/40" onClick={() => setMobileOpen(false)}>
+        <div
+          className="fixed inset-0 z-50 bg-black/40"
+          onClick={() => setMobileOpen(false)}
+        >
           <div
             className="absolute top-0 right-0 w-64 h-full bg-white/10 backdrop-blur-lg shadow-2xl border-l border-white/20 flex flex-col gap-2 p-6 animate-in slide-in-from-right-10 duration-200"
             onClick={(e) => e.stopPropagation()}
@@ -69,7 +82,8 @@ const UserNavMenu = () => {
                 <span
                   className={cn(
                     "flex items-center gap-3 px-3 py-3 rounded-xl text-lg text-white hover:bg-blue-400/20 hover:text-blue-300 transition-colors cursor-pointer",
-                    pathname === item.href && "bg-blue-400/30 text-blue-200 font-semibold"
+                    pathname === item.href &&
+                      "bg-blue-400/30 text-blue-200 font-semibold"
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -79,7 +93,7 @@ const UserNavMenu = () => {
               </Link>
             ))}
             <div className="mt-4">
-              <LogoutButton />
+              <LogoutButton>Logout</LogoutButton>
             </div>
           </div>
         </div>
@@ -88,4 +102,4 @@ const UserNavMenu = () => {
   );
 };
 
-export default UserNavMenu; 
+export default UserNavMenu;
