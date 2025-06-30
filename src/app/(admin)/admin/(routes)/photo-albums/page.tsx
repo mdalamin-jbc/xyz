@@ -106,7 +106,7 @@ const MainComponent: React.FC = () => {
   const isUploading = createPhotoMutation.isPending;
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen lg:p-4 bg-white ">
       <div className="flex-1">
         <div className="mb-8">
           <Breadcrumbs

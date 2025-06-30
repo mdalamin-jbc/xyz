@@ -155,7 +155,7 @@ const MainComponent: FC = () => {
   };
   console.log({ requests });
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen  flex-col bg-white lg:p-4">
       <div className="mb-8">
         <Breadcrumbs
           items={[{ label: "お土産依頼", href: "/admin/souvenir-requests" }]}

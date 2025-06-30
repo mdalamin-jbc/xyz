@@ -1686,6 +1686,56 @@
     background-color: var(--color-gray-50);
   }
 
+  .bg-gray-50\/40 {
+    background-color: #f9fafb66;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/40 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 40%, transparent);
+    }
+  }
+
+  .bg-gray-50\/50 {
+    background-color: #f9fafb80;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/50 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 50%, transparent);
+    }
+  }
+
+  .bg-gray-50\/55 {
+    background-color: #f9fafb8c;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/55 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 55%, transparent);
+    }
+  }
+
+  .bg-gray-50\/80 {
+    background-color: #f9fafbcc;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/80 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 80%, transparent);
+    }
+  }
+
+  .bg-gray-50\/90 {
+    background-color: #f9fafbe6;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-gray-50\/90 {
+      background-color: color-mix(in oklab, var(--color-gray-50) 90%, transparent);
+    }
+  }
+
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
@@ -4006,6 +4056,12 @@
       --tw-space-x-reverse: 0;
       margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:p-4 {
+      padding: calc(var(--spacing) * 4);
     }
   }
 

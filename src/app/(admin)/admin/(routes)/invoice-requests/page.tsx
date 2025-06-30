@@ -101,7 +101,7 @@ const MainComponent: FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col lg:p-4 bg-white">
       <div className="mb-8">
         <Breadcrumbs
           items={[{ label: "請求書依頼", href: "/admin/invoice-requests" }]}

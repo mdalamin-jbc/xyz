@@ -1,4 +1,7 @@
 {
+  "/(admin)/admin/(routes)/chat-history/page": "app/(admin)/admin/(routes)/chat-history/page.js",
+  "/(admin)/admin/(routes)/invoice-requests/page": "app/(admin)/admin/(routes)/invoice-requests/page.js",
+  "/(admin)/admin/(routes)/line-requests/page": "app/(admin)/admin/(routes)/line-requests/page.js",
   "/(admin)/admin/(routes)/photo-albums/page": "app/(admin)/admin/(routes)/photo-albums/page.js",
   "/(admin)/admin/(routes)/photo-edit-requests/[uid]/page": "app/(admin)/admin/(routes)/photo-edit-requests/[uid]/page.js",
   "/(admin)/admin/(routes)/photo-edit-requests/page": "app/(admin)/admin/(routes)/photo-edit-requests/page.js",

@@ -46,6 +46,8 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-right.js [app-ssr] (ecmascript) <export default as ChevronRight>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$house$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Home$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/house.js [app-ssr] (ecmascript) <export default as Home>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
+;
 ;
 ;
 // Main Breadcrumbs Component
@@ -53,7 +55,7 @@ const Breadcrumbs = ({ items, separator = /*#__PURE__*/ (0, __TURBOPACK__importe
     className: "w-4 h-4 text-gray-400"
 }, void 0, false, {
     fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-    lineNumber: 24,
+    lineNumber: 25,
     columnNumber: 15
 }, this), className = "", showHome = true, homeLabel = "ホーム", homeHref = "/" })=>{
     // Add home item if showHome is true
@@ -65,7 +67,7 @@ const Breadcrumbs = ({ items, separator = /*#__PURE__*/ (0, __TURBOPACK__importe
                 className: "w-4 h-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 17
             }, this)
         },
@@ -87,25 +89,31 @@ const Breadcrumbs = ({ items, separator = /*#__PURE__*/ (0, __TURBOPACK__importe
                             children: separator
                         }, void 0, false, {
                             fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-                            lineNumber: 55,
+                            lineNumber: 56,
                             columnNumber: 17
                         }, this),
-                        item.href && !isActive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                        item.href && !isActive ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             href: item.href,
-                            className: "flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1 rounded-md hover:bg-gray-100",
-                            children: [
-                                item.icon,
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                    children: item.label
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-                                    lineNumber: 64,
-                                    columnNumber: 19
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "flex items-center  text-gray-600 hover:text-gray-900 transition-colors duration-200 px-1 py-1 rounded-md hover:bg-gray-100",
+                                children: [
+                                    item.icon,
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        children: item.label
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
+                                        lineNumber: 63,
+                                        columnNumber: 21
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
+                                lineNumber: 61,
+                                columnNumber: 19
+                            }, this)
+                        }, void 0, false, {
                             fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-                            lineNumber: 59,
+                            lineNumber: 60,
                             columnNumber: 17
                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                             className: `flex items-center gap-1 px-2 py-1 rounded-md ${isActive ? "text-blue-600 bg-blue-50 font-medium" : "text-gray-500"}`,
@@ -127,18 +135,18 @@ const Breadcrumbs = ({ items, separator = /*#__PURE__*/ (0, __TURBOPACK__importe
                     ]
                 }, index, true, {
                     fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-                    lineNumber: 53,
+                    lineNumber: 54,
                     columnNumber: 13
                 }, this);
             })
         }, void 0, false, {
             fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-            lineNumber: 47,
+            lineNumber: 48,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/ui/Breadcrumbs.tsx",
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 5
     }, this);
 };
@@ -286,7 +294,7 @@ const MainComponent = ()=>{
         requests
     });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex min-h-screen flex-col bg-white",
+        className: "flex min-h-screen  flex-col bg-white lg:p-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "mb-8",

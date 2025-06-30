@@ -49,7 +49,7 @@ export default function RootLayout({
         </header>
 
         {/* Scrollable Page Content */}
-        <main className="flex-1 overflow-y-auto pt-16 lg:pt-0">
+        <main className="flex-1 overflow-y-auto mt-4 lg:pt-0">
           <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6">{children}</div>
         </main>
       </div>

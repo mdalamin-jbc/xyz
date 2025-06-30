@@ -72,7 +72,7 @@ const MainComponent: FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-white lg:p-4">
       <div className="mb-8">
         <Breadcrumbs
           items={[{ label: "チャット履歴", href: "/admin/chat-history" }]}
