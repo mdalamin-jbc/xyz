@@ -112,20 +112,20 @@ const badge = (value, trueLabel, falseLabel, color)=>/*#__PURE__*/ (0, __TURBOPA
                 className: "w-3 h-3"
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 9,
-                columnNumber: 14
+                lineNumber: 26,
+                columnNumber: 7
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
                 className: "w-3 h-3"
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 9,
-                columnNumber: 52
+                lineNumber: 28,
+                columnNumber: 7
             }, this),
             value ? trueLabel : falseLabel
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-        lineNumber: 8,
+        lineNumber: 20,
         columnNumber: 3
     }, this);
 const kindBadge = (kind)=>{
@@ -137,20 +137,23 @@ const kindBadge = (kind)=>{
                 className: "w-3 h-3"
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 16,
-                columnNumber: 110
+                lineNumber: 45,
+                columnNumber: 7
             }, this),
             kind
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-        lineNumber: 16,
-        columnNumber: 10
+        lineNumber: 42,
+        columnNumber: 5
     }, this);
 };
 const Users = ()=>{
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const { data: users, isLoading, isError, error } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$admin$2f$useUsers$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUsers"])();
+    console.log({
+        users
+    });
     const filtered = users?.filter((u)=>u.email.toLowerCase().includes(search.toLowerCase()) || u.kind && u.kind.toLowerCase().includes(search.toLowerCase()));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "max-w-6xl mx-auto px-4 py-8",
@@ -160,7 +163,7 @@ const Users = ()=>{
                 children: "ユーザー管理"
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 31,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -173,12 +176,12 @@ const Users = ()=>{
                     className: "w-full sm:w-80 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                    lineNumber: 33,
+                    lineNumber: 65,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 32,
+                lineNumber: 64,
                 columnNumber: 7
             }, this),
             isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -192,21 +195,21 @@ const Users = ()=>{
                                 className: "h-4 bg-gray-200 rounded w-1/2 mb-2"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 45,
+                                lineNumber: 80,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "h-3 bg-gray-100 rounded w-1/3 mb-1"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 46,
+                                lineNumber: 81,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "h-3 bg-gray-100 rounded w-1/4"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 47,
+                                lineNumber: 82,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -216,31 +219,31 @@ const Users = ()=>{
                                         className: "h-5 w-16 bg-gray-100 rounded"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 49,
+                                        lineNumber: 84,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "h-5 w-16 bg-gray-100 rounded"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 50,
+                                        lineNumber: 85,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 48,
+                                lineNumber: 83,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, i, true, {
                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                        lineNumber: 44,
+                        lineNumber: 76,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 42,
+                lineNumber: 74,
                 columnNumber: 9
             }, this) : isError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: "text-center text-red-500",
@@ -250,7 +253,7 @@ const Users = ()=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 56,
+                lineNumber: 91,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
@@ -264,22 +267,22 @@ const Users = ()=>{
                                         className: "w-5 h-5 text-blue-400"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 65,
-                                        columnNumber: 17
+                                        lineNumber: 103,
+                                        columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "text-lg font-semibold text-gray-800 truncate",
                                         children: user.email
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 66,
-                                        columnNumber: 17
+                                        lineNumber: 104,
+                                        columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 64,
-                                columnNumber: 15
+                                lineNumber: 102,
+                                columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-wrap gap-2 mt-1",
@@ -291,8 +294,8 @@ const Users = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 68,
-                                columnNumber: 15
+                                lineNumber: 108,
+                                columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col gap-1 mt-2 text-sm text-gray-600",
@@ -304,15 +307,15 @@ const Users = ()=>{
                                                 className: "w-4 h-4 text-gray-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                                lineNumber: 75,
-                                                columnNumber: 58
+                                                lineNumber: 132,
+                                                columnNumber: 21
                                             }, this),
                                             user.email
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 75,
-                                        columnNumber: 17
+                                        lineNumber: 131,
+                                        columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center gap-2",
@@ -321,15 +324,15 @@ const Users = ()=>{
                                                 className: "w-4 h-4 text-yellow-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                                lineNumber: 76,
-                                                columnNumber: 58
+                                                lineNumber: 136,
+                                                columnNumber: 21
                                             }, this),
                                             String(user.is_subscribed)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 76,
-                                        columnNumber: 17
+                                        lineNumber: 135,
+                                        columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center gap-2",
@@ -338,15 +341,15 @@ const Users = ()=>{
                                                 className: "w-4 h-4 text-blue-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                                lineNumber: 77,
-                                                columnNumber: 58
+                                                lineNumber: 140,
+                                                columnNumber: 21
                                             }, this),
                                             user.kind
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 77,
-                                        columnNumber: 17
+                                        lineNumber: 139,
+                                        columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center gap-2",
@@ -355,15 +358,15 @@ const Users = ()=>{
                                                 className: "w-4 h-4 text-green-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                                lineNumber: 78,
-                                                columnNumber: 58
+                                                lineNumber: 144,
+                                                columnNumber: 21
                                             }, this),
                                             String(user.is_active)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 78,
-                                        columnNumber: 17
+                                        lineNumber: 143,
+                                        columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "flex items-center gap-2",
@@ -372,44 +375,44 @@ const Users = ()=>{
                                                 className: "w-4 h-4 text-blue-400"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                                lineNumber: 79,
-                                                columnNumber: 58
+                                                lineNumber: 148,
+                                                columnNumber: 21
                                             }, this),
                                             String(user.is_verified)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                        lineNumber: 79,
-                                        columnNumber: 17
+                                        lineNumber: 147,
+                                        columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                                lineNumber: 74,
-                                columnNumber: 15
+                                lineNumber: 130,
+                                columnNumber: 17
                             }, this)
                         ]
                     }, user.id || user.email, true, {
                         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                        lineNumber: 60,
-                        columnNumber: 13
+                        lineNumber: 98,
+                        columnNumber: 15
                     }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "col-span-full text-center text-gray-500 py-12",
                     children: "ユーザーが見つかりません"
                 }, void 0, false, {
                     fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                    lineNumber: 83,
+                    lineNumber: 155,
                     columnNumber: 13
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-                lineNumber: 58,
+                lineNumber: 95,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/(admin)/admin/(routes)/users/page.tsx",
-        lineNumber: 30,
+        lineNumber: 62,
         columnNumber: 5
     }, this);
 };
