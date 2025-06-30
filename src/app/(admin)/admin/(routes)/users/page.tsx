@@ -11,6 +11,7 @@ import {
   Star,
   Search,
 } from "lucide-react";
+import Breadcrumbs, { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 
 const StatusBadge = ({ status, type }) => {
   const getConfig = () => {
@@ -119,6 +120,9 @@ const RoleBadge = ({ role }) => {
 const Users = () => {
   const [search, setSearch] = useState("");
   const { data: users, isLoading, isError, error } = useUsers();
+  const userBreadcrumbs: BreadcrumbItem[] = [
+    { label: "管理者", href: "/admin" },
+  ];
 
   const filtered = users?.filter(
     (u) =>
@@ -166,6 +170,9 @@ const Users = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 bg-gray-50 min-h-screen">
+      <div className="mb-8">
+        <Breadcrumbs items={userBreadcrumbs} />
+      </div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">ユーザー管理</h1>
         <p className="text-gray-600">
