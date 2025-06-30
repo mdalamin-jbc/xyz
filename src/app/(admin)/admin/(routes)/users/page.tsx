@@ -239,7 +239,7 @@ const Users = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { data: users, isLoading, isError, error } = useUsers();
 
-  const ITEMS_PER_PAGE = 6;
+  const ITEMS_PER_PAGE = 5;
 
   const { filtered, paginatedUsers, totalPages } = useMemo(() => {
     const filtered = users?.filter(
