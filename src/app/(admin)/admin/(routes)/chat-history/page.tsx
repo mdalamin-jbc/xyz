@@ -1,5 +1,7 @@
 "use client";
 import Button from "@/components/admin/ui/Button";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { adminBreadcrumbs } from "@/constants/route-breadcrumbs";
 import React, { useEffect, useState, ChangeEvent, FormEvent, FC } from "react";
 
 interface ChatRoom {
@@ -71,6 +73,12 @@ const MainComponent: FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[{ label: "チャット履歴", href: "/admin/chat-history" }]}
+          homeHref="/admin"
+        />
+      </div>
       <header className="border-b border-gray-200 bg-white px-4 py-3 md:px-6">
         <h1 className="text-xl font-medium text-gray-800 md:text-2xl">
           チャット履歴管理

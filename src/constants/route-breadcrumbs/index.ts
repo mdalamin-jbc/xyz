@@ -1,9 +1,7 @@
 import { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 
-const adminBreadcrumbs: BreadcrumbItem[] = [
+export const adminBreadcrumbs: BreadcrumbItem[] = [
   { label: "管理者", href: "/admin" },
-  { label: "ユーザー管理", href: "/admin/users" },
-  { label: "ユーザー詳細" }, // Current page (no href)
 ];
 
 const dashboardBreadcrumbs: BreadcrumbItem[] = [

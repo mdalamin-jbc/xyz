@@ -1,5 +1,7 @@
 "use client";
 import Button from "@/components/admin/ui/Button";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { adminBreadcrumbs } from "@/constants/route-breadcrumbs";
 import React, { useEffect, useState, FormEvent, ChangeEvent, FC } from "react";
 
 // Interfaces
@@ -100,6 +102,12 @@ const MainComponent: FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[{ label: "請求書依頼", href: "/admin/invoice-requests" }]}
+          homeHref="/admin"
+        />
+      </div>
       <header className="border-b border-gray-200 bg-white px-4 py-4 sm:px-6">
         <h1 className="text-lg font-semibold text-gray-800 sm:text-2xl">
           ダミー請求書依頼管理

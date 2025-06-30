@@ -18,6 +18,7 @@ import Link from "next/link";
 import { baseUrl } from "@/constants/baseApi";
 import { getAuthHeaders } from "@/infrastructure/admin/utils/getAuthHeaders";
 import { useParams } from "next/navigation";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 interface FileItem {
   file_type: string;
@@ -55,7 +56,12 @@ const VideoEditRequestDetailPage = () => {
   const [statusError, setStatusError] = useState<string | null>(null);
   const [statusSuccess, setStatusSuccess] = useState<string | null>(null);
   const params = useParams();
-  const uid = typeof params.uid === "string" ? params.uid : Array.isArray(params.uid) ? params.uid[0] : "";
+  const uid =
+    typeof params.uid === "string"
+      ? params.uid
+      : Array.isArray(params.uid)
+      ? params.uid[0]
+      : "";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -93,7 +99,10 @@ const VideoEditRequestDetailPage = () => {
     setStatusSuccess(null);
     try {
       const headers: Record<string, string> = { ...getAuthHeaders() };
-      const csrfToken = typeof window !== "undefined" ? localStorage.getItem("csrftoken") : null;
+      const csrfToken =
+        typeof window !== "undefined"
+          ? localStorage.getItem("csrftoken")
+          : null;
       if (csrfToken) headers["X-CSRFTOKEN"] = csrfToken;
       headers["accept"] = "application/json";
       const response = await fetch(
@@ -174,6 +183,14 @@ const VideoEditRequestDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-8 px-4">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[
+            { label: "動画依頼", href: "/admin/video-requests" },
+            { label: "動画依頼の詳細", href: "/admin/video-requests" },
+          ]}
+        />
+      </div>
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="mb-8">

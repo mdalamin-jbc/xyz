@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronRight, Home } from "lucide-react";
+import Link from "next/link";
 
 // Breadcrumb types
 export interface BreadcrumbItem {
@@ -56,13 +57,12 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               )}
 
               {item.href && !isActive ? (
-                <a
-                  href={item.href}
-                  className="flex items-center gap-1 text-gray-600 hover:text-gray-900 transition-colors duration-200 px-2 py-1 rounded-md hover:bg-gray-100"
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </a>
+                <Link href={item.href}>
+                  <p className="flex items-center  text-gray-600 hover:text-gray-900 transition-colors duration-200 px-1 py-1 rounded-md hover:bg-gray-100">
+                    {item.icon}
+                    <span>{item.label}</span>
+                  </p>
+                </Link>
               ) : (
                 <span
                   className={`flex items-center gap-1 px-2 py-1 rounded-md ${

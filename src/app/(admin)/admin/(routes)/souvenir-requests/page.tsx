@@ -2,6 +2,7 @@
 import Button from "@/components/admin/ui/Button";
 import React, { useEffect, useState, FormEvent, ChangeEvent, FC } from "react";
 import Link from "next/link";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 // Interfaces
 interface Request {
@@ -155,6 +156,12 @@ const MainComponent: FC = () => {
   console.log({ requests });
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[{ label: "お土産依頼", href: "/admin/souvenir-requests" }]}
+          homeHref="/admin"
+        />
+      </div>
       <header className="border-b border-gray-200 bg-white px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between">
           <h1 className="text-lg font-semibold text-gray-800 sm:text-2xl">

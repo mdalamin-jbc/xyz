@@ -1,5 +1,7 @@
 "use client";
 import Button from "@/components/admin/ui/Button";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { adminBreadcrumbs } from "@/constants/route-breadcrumbs";
 import React, { useEffect, useState, FormEvent, ChangeEvent, FC } from "react";
 
 interface VideoRequest {
@@ -48,8 +50,10 @@ const MainComponent: FC = () => {
       const params = new URLSearchParams();
       params.append("page", String(currentPage));
       if (searchTerm) params.append("search", searchTerm);
-      if (selectedStatus && selectedStatus !== "all") params.append("status", selectedStatus);
-      const response = await fetch(`https://15.206.185.80/gallery/admin/video-audio-edit-requests?${params.toString()}`,
+      if (selectedStatus && selectedStatus !== "all")
+        params.append("status", selectedStatus);
+      const response = await fetch(
+        `https://15.206.185.80/gallery/admin/video-audio-edit-requests?${params.toString()}`,
         {
           method: "GET",
           headers: {
@@ -98,6 +102,12 @@ const MainComponent: FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[{ label: "	動画依頼", href: "/admin" }]}
+          homeHref="/admin"
+        />
+      </div>
       <header className="border-b border-gray-200 bg-white px-4 py-4 sm:px-6">
         <h1 className="text-lg font-semibold text-gray-800 sm:text-2xl">
           アリバイ動画音声依頼管理

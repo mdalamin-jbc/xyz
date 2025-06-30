@@ -3,6 +3,8 @@ import React, { useEffect, useState, FormEvent, ChangeEvent } from "react";
 import Button from "@/components/admin/ui/Button";
 import { baseUrl } from "@/constants/baseApi";
 import { getAuthHeaders } from "@/infrastructure/admin/utils/getAuthHeaders";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { adminBreadcrumbs } from "@/constants/route-breadcrumbs";
 
 interface FileItem {
   file_type: string;
@@ -95,6 +97,14 @@ const MainComponent: React.FC = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <div className="mb-8">
+        <Breadcrumbs
+          items={[
+            { label: "写真編集依頼", href: "/admin/photo-edit-requests" },
+          ]}
+          homeHref="/admin"
+        />
+      </div>
       <header className="border-b border-gray-200 bg-white px-4 py-4 sm:px-6">
         <h1 className="text-lg font-semibold text-gray-800 sm:text-2xl">
           アリバイ写真加工依頼管理
