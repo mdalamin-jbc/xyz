@@ -1,7 +1,7 @@
 "use client";
 
 import { useUsers } from "@/hooks/admin/useUsers";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   CheckCircle,
   XCircle,
@@ -10,6 +10,10 @@ import {
   Mail,
   Star,
   Search,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
 } from "lucide-react";
 import Breadcrumbs, { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import { adminBreadcrumbs } from "@/constants/route-breadcrumbs";
@@ -118,15 +122,152 @@ const RoleBadge = ({ role }) => {
   );
 };
 
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const getVisiblePages = () => {
+    const delta = 2;
+    const range = [];
+    const rangeWithDots = [];
+
+    for (
+      let i = Math.max(2, currentPage - delta);
+      i <= Math.min(totalPages - 1, currentPage + delta);
+      i++
+    ) {
+      range.push(i);
+    }
+
+    if (currentPage - delta > 2) {
+      rangeWithDots.push(1, "...");
+    } else {
+      rangeWithDots.push(1);
+    }
+
+    rangeWithDots.push(...range);
+
+    if (currentPage + delta < totalPages - 1) {
+      rangeWithDots.push("...", totalPages);
+    } else {
+      rangeWithDots.push(totalPages);
+    }
+
+    return rangeWithDots;
+  };
+
+  const visiblePages = totalPages > 1 ? getVisiblePages() : [];
+
+  if (totalPages <= 1) return null;
+
+  return (
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 py-4 bg-gray-50 border-t">
+      {/* Page Info */}
+      <div className="text-sm text-gray-600 order-2 sm:order-1">
+        ページ {currentPage} / {totalPages}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex items-center gap-1 order-1 sm:order-2">
+        {/* First Page */}
+        <button
+          onClick={() => onPageChange(1)}
+          disabled={currentPage === 1}
+          className="p-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors hidden sm:flex items-center justify-center"
+          title="最初のページ"
+        >
+          <ChevronsLeft className="w-4 h-4" />
+        </button>
+
+        {/* Previous Page */}
+        <button
+          onClick={() => onPageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="p-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+          title="前のページ"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        {/* Page Numbers */}
+        <div className="flex items-center gap-1">
+          {visiblePages.map((page, index) => (
+            <React.Fragment key={index}>
+              {page === "..." ? (
+                <span className="px-3 py-2 text-gray-500 hidden sm:inline">
+                  ...
+                </span>
+              ) : (
+                <button
+                  onClick={() => onPageChange(page)}
+                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors min-w-[40px] ${
+                    currentPage === page
+                      ? "bg-blue-600 text-white border border-blue-600"
+                      : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  {page}
+                </button>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* Next Page */}
+        <button
+          onClick={() => onPageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="p-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+          title="次のページ"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        {/* Last Page */}
+        <button
+          onClick={() => onPageChange(totalPages)}
+          disabled={currentPage === totalPages}
+          className="p-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors hidden sm:flex items-center justify-center"
+          title="最後のページ"
+        >
+          <ChevronsRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const Users = () => {
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
   const { data: users, isLoading, isError, error } = useUsers();
 
-  const filtered = users?.filter(
-    (u) =>
-      u.email.toLowerCase().includes(search.toLowerCase()) ||
-      (u.kind && u.kind.toLowerCase().includes(search.toLowerCase()))
-  );
+  const ITEMS_PER_PAGE = 6;
+
+  const { filtered, paginatedUsers, totalPages } = useMemo(() => {
+    const filtered = users?.filter(
+      (u) =>
+        u.email.toLowerCase().includes(search.toLowerCase()) ||
+        (u.kind && u.kind.toLowerCase().includes(search.toLowerCase()))
+    );
+
+    const totalPages = Math.ceil((filtered?.length || 0) / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const paginatedUsers = filtered?.slice(
+      startIndex,
+      startIndex + ITEMS_PER_PAGE
+    );
+
+    return { filtered, paginatedUsers, totalPages };
+  }, [users, search, currentPage]);
+
+  // Reset to first page when search changes
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [search]);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Scroll to top of table on page change
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (isLoading) {
     return (
@@ -136,7 +277,7 @@ const Users = () => {
             <div className="h-6 bg-gray-200 rounded w-32 animate-pulse"></div>
           </div>
           <div className="p-6">
-            {[...Array(5)].map((_, i) => (
+            {[...Array(6)].map((_, i) => (
               <div
                 key={i}
                 className="flex items-center py-4 border-b last:border-b-0"
@@ -236,8 +377,8 @@ const Users = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {filtered && filtered.length > 0 ? (
-                filtered.map((user, idx) => (
+              {paginatedUsers && paginatedUsers.length > 0 ? (
+                paginatedUsers.map((user, idx) => (
                   <tr
                     key={user.email}
                     className="hover:bg-gray-50 transition-colors"
@@ -292,11 +433,20 @@ const Users = () => {
           </table>
         </div>
 
+        {/* Pagination */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+
         {/* Footer Section */}
         {filtered && filtered.length > 0 && (
           <div className="px-4 sm:px-6 py-4 bg-gray-50 border-t">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-gray-600">
               <span className="font-medium text-center sm:text-left">
+                {(currentPage - 1) * ITEMS_PER_PAGE + 1} -{" "}
+                {Math.min(currentPage * ITEMS_PER_PAGE, filtered.length)} /{" "}
                 {filtered.length} 件のユーザーが表示されています
               </span>
               <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
