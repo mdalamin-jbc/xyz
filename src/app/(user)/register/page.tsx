@@ -141,7 +141,7 @@ const RegisterPage = () => {
               loading={loading}
               variant="glassBrand"
             >
-              登録中...
+              {loading ? "登録中..." : "登録"}
             </Button>
             {/* Login Link */}
             <div className="text-center text-sm text-gray-300">

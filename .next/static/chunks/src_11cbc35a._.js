@@ -726,7 +726,7 @@ const RegisterPage = ()=>{
                                 onClick: handleSubmit(onSubmit),
                                 loading: loading,
                                 variant: "glassBrand",
-                                children: "登録中..."
+                                children: loading ? "登録中..." : "登録"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(user)/register/page.tsx",
                                 lineNumber: 137,
