@@ -158,7 +158,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   if (totalPages <= 1) return null;
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 py-4 bg-gray-50 border-t">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-4 sm:px-6 py-4 bg-gray-50  border-gray-300 border-t">
       {/* Page Info */}
       <div className="text-sm text-gray-600 order-2 sm:order-1">
         ページ {currentPage} / {totalPages}
@@ -272,15 +272,15 @@ const Users = () => {
   if (isLoading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-sm border">
-          <div className="p-6 border-b">
+        <div className="bg-white rounded-lg shadow-sm border-2 border-gray-300">
+          <div className="p-6 border-b border-gray-300">
             <div className="h-6 bg-gray-200 rounded w-32 animate-pulse"></div>
           </div>
           <div className="p-6">
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="flex items-center py-4 border-b last:border-b-0"
+                className="flex items-center py-4 border-b last:border-b-0 border-gray-300"
               >
                 <div className="h-4 bg-gray-200 rounded w-48 animate-pulse mr-6"></div>
                 <div className="h-4 bg-gray-200 rounded w-20 animate-pulse mr-6"></div>
@@ -322,9 +322,9 @@ const Users = () => {
         </p>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-300 overflow-hidden">
         {/* Header Section */}
-        <div className="p-6 border-b bg-gray-50">
+        <div className="p-6 border-b  border-gray-300 bg-gray-50">
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             <div className="flex items-center gap-2 text-gray-700">
               <User className="w-5 h-5" />
@@ -348,7 +348,7 @@ const Users = () => {
         {/* Table Section */}
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-gray-50 border-b  border-gray-200">
               <tr>
                 <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                   <div className="flex items-center gap-2">
@@ -442,7 +442,7 @@ const Users = () => {
 
         {/* Footer Section */}
         {filtered && filtered.length > 0 && (
-          <div className="px-4 sm:px-6 py-4 bg-gray-50 border-t">
+          <div className="px-4 sm:px-6 py-4 bg-gray-50 border-t  border-gray-300">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-sm text-gray-600">
               <span className="font-medium text-center sm:text-left">
                 {(currentPage - 1) * ITEMS_PER_PAGE + 1} -{" "}
