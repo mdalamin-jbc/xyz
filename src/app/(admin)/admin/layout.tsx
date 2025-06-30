@@ -22,29 +22,35 @@ export default function RootLayout({
   };
 
   return (
-    <div
-      className={`flex flex-col lg:flex-row bg-gray-50 min-h-screen font-sans`}
-    >
-      {/* Sidebar */}
-      <Sidebar
-        navItems={navItems}
-        isOpen={isSidebarOpen}
-        onClose={closeSidebar}
-      />
+    <div className="flex h-screen bg-gray-50 font-sans overflow-hidden">
+      {/* Fixed Sidebar */}
+      <div className="relative z-30">
+        <Sidebar
+          navItems={navItems}
+          isOpen={isSidebarOpen}
+          onClose={closeSidebar}
+        />
+      </div>
+
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          onClick={closeSidebar}
+        />
+      )}
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col">
-        {/* Header for hamburger menu and main content title */}
-        <header className="bg-white  fixed w-full z-20  shadow-sm p-4 border-b border-gray-200 flex items-center lg:hidden">
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Fixed Header for Mobile */}
+        <header className="bg-white fixed top-0 left-0 right-0 lg:relative lg:top-auto lg:left-auto lg:right-auto z-10 shadow-sm p-4 border-b border-gray-200 flex items-center lg:hidden">
           <HamburgerMenu isOpen={isSidebarOpen} onToggle={toggleSidebar} />
-          <h1 className="text-heading2 font-bold text-neutral-900 ml-4">
-            管理画面
-          </h1>
+          <h1 className="text-xl font-bold text-neutral-900 ml-4">管理画面</h1>
         </header>
 
-        {/* Page content */}
-        <main className="flex-1 px-4 sm:p-6 mt-18 md:px-8 overflow-y-auto">
-          {children}
+        {/* Scrollable Page Content */}
+        <main className="flex-1 overflow-y-auto pt-16 lg:pt-0">
+          <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6">{children}</div>
         </main>
       </div>
     </div>

@@ -386,7 +386,7 @@ const Sidebar = ({ navItems, isOpen, onClose })=>{
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
-                className: `fixed inset-y-0 left-0 bg-white  border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out
+                className: `fixed max-w-[100vh] inset-y-0 left-0 bg-white  border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out
           lg:static lg:translate-x-0 lg:w-80 lg:min-h-screen
           ${isOpen ? "translate-x-0 z-40 w-72" : "-translate-x-full z-40 w-64"}
         `,
@@ -712,57 +712,79 @@ function RootLayout({ children }) {
         setIsSidebarOpen(false);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `flex flex-col lg:flex-row bg-gray-50 min-h-screen font-sans`,
+        className: "flex h-screen bg-gray-50 font-sans overflow-hidden",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$admin$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                navItems: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$constants$2f$admin$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["navItems"],
-                isOpen: isSidebarOpen,
-                onClose: closeSidebar
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "relative z-30",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$admin$2f$Sidebar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                    navItems: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$constants$2f$admin$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["navItems"],
+                    isOpen: isSidebarOpen,
+                    onClose: closeSidebar
+                }, void 0, false, {
+                    fileName: "[project]/src/app/(admin)/admin/layout.tsx",
+                    lineNumber: 28,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                lineNumber: 29,
+                lineNumber: 27,
                 columnNumber: 7
             }, this),
+            isSidebarOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden",
+                onClick: closeSidebar
+            }, void 0, false, {
+                fileName: "[project]/src/app/(admin)/admin/layout.tsx",
+                lineNumber: 37,
+                columnNumber: 9
+            }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1 flex flex-col",
+                className: "flex-1 flex flex-col min-w-0",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-                        className: "bg-white  fixed w-full z-20  shadow-sm p-4 border-b border-gray-200 flex items-center lg:hidden",
+                        className: "bg-white fixed top-0 left-0 right-0 lg:relative lg:top-auto lg:left-auto lg:right-auto z-10 shadow-sm p-4 border-b border-gray-200 flex items-center lg:hidden",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$admin$2f$HamburgerMenu$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                 isOpen: isSidebarOpen,
                                 onToggle: toggleSidebar
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                                lineNumber: 39,
+                                lineNumber: 47,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-heading2 font-bold text-neutral-900 ml-4",
+                                className: "text-xl font-bold text-neutral-900 ml-4",
                                 children: "管理画面"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                                lineNumber: 40,
+                                lineNumber: 48,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                        lineNumber: 38,
+                        lineNumber: 46,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                        className: "flex-1 px-4 sm:p-6 mt-18 md:px-8 overflow-y-auto",
-                        children: children
+                        className: "flex-1 overflow-y-auto pt-16 lg:pt-0",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "px-4 sm:px-6 md:px-8 py-4 sm:py-6",
+                            children: children
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/(admin)/admin/layout.tsx",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                        lineNumber: 46,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/(admin)/admin/layout.tsx",
-                lineNumber: 36,
+                lineNumber: 44,
                 columnNumber: 7
             }, this)
         ]

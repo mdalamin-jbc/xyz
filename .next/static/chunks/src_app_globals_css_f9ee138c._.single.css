@@ -961,6 +961,10 @@
     max-width: 80%;
   }
 
+  .max-w-\[100vh\] {
+    max-width: 100vh;
+  }
+
   .max-w-\[120px\] {
     max-width: 120px;
   }
@@ -2131,6 +2135,10 @@
 
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
+  }
+
+  .pt-16 {
+    padding-top: calc(var(--spacing) * 16);
   }
 
   .pr-4 {
@@ -3747,8 +3755,26 @@
   }
 
   @media (width >= 64rem) {
+    .lg\:top-auto {
+      top: auto;
+    }
+  }
+
+  @media (width >= 64rem) {
     .lg\:right-22 {
       right: calc(var(--spacing) * 22);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:right-auto {
+      right: auto;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:left-auto {
+      left: auto;
     }
   }
 
@@ -3932,6 +3958,12 @@
   @media (width >= 64rem) {
     .lg\:py-20 {
       padding-block: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (width >= 64rem) {
+    .lg\:pt-0 {
+      padding-top: calc(var(--spacing) * 0);
     }
   }
 

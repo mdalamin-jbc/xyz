@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ navItems, isOpen, onClose }) => {
 
       {/* Sidebar itself */}
       <aside
-        className={`fixed inset-y-0 left-0 bg-white  border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out
+        className={`fixed max-w-[100vh] inset-y-0 left-0 bg-white  border-r border-gray-200 p-4 transition-transform duration-300 ease-in-out
           lg:static lg:translate-x-0 lg:w-80 lg:min-h-screen
           ${isOpen ? "translate-x-0 z-40 w-72" : "-translate-x-full z-40 w-64"}
         `}
