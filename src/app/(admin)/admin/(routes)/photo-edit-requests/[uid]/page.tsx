@@ -13,6 +13,9 @@ import {
   Eye,
 } from "lucide-react";
 import Link from "next/link";
+import { baseUrl } from "@/constants/baseApi";
+import { getAuthHeaders } from "@/infrastructure/admin/utils/getAuthHeaders";
+import { useParams } from "next/navigation";
 
 interface FileItem {
   file_type: string;
@@ -45,39 +48,35 @@ const PhotoEditRequestDetailPage = () => {
   const [statusUpdating, setStatusUpdating] = useState(false);
   const [statusError, setStatusError] = useState<string | null>(null);
   const [statusSuccess, setStatusSuccess] = useState<string | null>(null);
+  const params = useParams();
+  const uid = typeof params.uid === "string" ? params.uid : Array.isArray(params.uid) ? params.uid[0] : "";
 
-  // Mock data for demonstration
   useEffect(() => {
-    const mockData: PhotoEditRequestDetail = {
-      uid: "REQ-2024-001",
-      description:
-        "プロフィール写真の背景を透明にして、明度を調整してください。全体的にプロフェッショナルな印象になるように仕上げをお願いします。",
-      special_note:
-        "急ぎの案件です。可能であれば24時間以内の納品を希望します。",
-      request_status: "in_progress",
-      request_type: "背景除去・色調補正",
-      desire_delivery_date: "2024-06-30T10:00:00Z",
-      files: [
-        {
-          file_type: "JPEGファイル",
-          user_request_file: "https://example.com/original.jpg",
-          file_status: "処理中",
-          admin_response_file: "",
-        },
-        {
-          file_type: "RAWファイル",
-          user_request_file: "https://example.com/original.raw",
-          file_status: "完了",
-          admin_response_file: "https://example.com/processed.jpg",
-        },
-      ],
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          `${baseUrl}/gallery/admin/photo-edit-requests/${uid}`,
+          {
+            method: "GET",
+            headers: getAuthHeaders(),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("依頼詳細の取得に失敗しました");
+        }
+        const data: PhotoEditRequestDetail = await response.json();
+        setData(data);
+      } catch (err: any) {
+        setError(err.message || "予期しないエラーが発生しました");
+      } finally {
+        setLoading(false);
+      }
     };
-
-    setTimeout(() => {
-      setData(mockData);
-      setLoading(false);
-    }, 1000);
-  }, []);
+    if (uid) fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uid]);
 
   const handleStatusChange = async (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -86,16 +85,29 @@ const PhotoEditRequestDetailPage = () => {
     setStatusUpdating(true);
     setStatusError(null);
     setStatusSuccess(null);
-
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Build headers with CSRF token if available
+      const headers: Record<string, string> = { ...getAuthHeaders() };
+      const csrfToken = typeof window !== "undefined" ? localStorage.getItem("csrftoken") : null;
+      if (csrfToken) headers["X-CSRFTOKEN"] = csrfToken;
+      headers["accept"] = "application/json";
+      const response = await fetch(
+        `${baseUrl}/gallery/admin/photo-edit-requests/${uid}/update-status`,
+        {
+          method: "PATCH",
+          headers,
+          body: JSON.stringify({ request_status: newStatus }),
+        }
+      );
+      if (!response.ok) throw new Error("ステータスの更新に失敗しました");
       setData((prev) => (prev ? { ...prev, request_status: newStatus } : prev));
       setStatusSuccess("ステータスが更新されました");
+    } catch (err: any) {
+      setStatusError(err.message || "予期しないエラーが発生しました");
+    } finally {
       setStatusUpdating(false);
-
-      // Clear success message after 3 seconds
       setTimeout(() => setStatusSuccess(null), 3000);
-    }, 1500);
+    }
   };
 
   const getStatusBadge = (status: string) => {

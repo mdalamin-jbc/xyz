@@ -15,6 +15,9 @@ import {
   Film,
 } from "lucide-react";
 import Link from "next/link";
+import { baseUrl } from "@/constants/baseApi";
+import { getAuthHeaders } from "@/infrastructure/admin/utils/getAuthHeaders";
+import { useParams } from "next/navigation";
 
 interface FileItem {
   file_type: string;
@@ -51,45 +54,35 @@ const VideoEditRequestDetailPage = () => {
   const [statusUpdating, setStatusUpdating] = useState(false);
   const [statusError, setStatusError] = useState<string | null>(null);
   const [statusSuccess, setStatusSuccess] = useState<string | null>(null);
+  const params = useParams();
+  const uid = typeof params.uid === "string" ? params.uid : Array.isArray(params.uid) ? params.uid[0] : "";
 
-  // Mock data for demonstration
   useEffect(() => {
-    const mockData: VideoEditRequestDetail = {
-      uid: "VID-2024-007",
-      description:
-        "企業紹介動画の編集をお願いします。オープニングとエンディングのタイトル追加、BGM挿入、カラーグレーディングを行ってください。全体的にプロフェッショナルな仕上がりを希望します。",
-      special_note:
-        "クライアントプレゼン用なので、高品質な仕上がりをお願いします。音声レベルの調整も重要です。",
-      request_status: "in_progress",
-      request_type: "動画編集・音声調整",
-      desire_delivery_date: "2024-07-05T15:00:00Z",
-      files: [
-        {
-          file_type: "MP4ファイル",
-          user_request_file: "https://example.com/original_video.mp4",
-          file_status: "処理中",
-          admin_response_file: "",
-        },
-        {
-          file_type: "音声ファイル",
-          user_request_file: "https://example.com/narration.wav",
-          file_status: "完了",
-          admin_response_file: "https://example.com/processed_audio.mp3",
-        },
-        {
-          file_type: "字幕ファイル",
-          user_request_file: "https://example.com/subtitles.srt",
-          file_status: "完了",
-          admin_response_file: "https://example.com/final_subtitles.srt",
-        },
-      ],
+    const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          `${baseUrl}/gallery/admin/video-audio-edit-requests/${uid}`,
+          {
+            method: "GET",
+            headers: getAuthHeaders(),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("依頼詳細の取得に失敗しました");
+        }
+        const data: VideoEditRequestDetail = await response.json();
+        setData(data);
+      } catch (err: any) {
+        setError(err.message || "予期しないエラーが発生しました");
+      } finally {
+        setLoading(false);
+      }
     };
-
-    setTimeout(() => {
-      setData(mockData);
-      setLoading(false);
-    }, 1000);
-  }, []);
+    if (uid) fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uid]);
 
   const handleStatusChange = async (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -98,16 +91,28 @@ const VideoEditRequestDetailPage = () => {
     setStatusUpdating(true);
     setStatusError(null);
     setStatusSuccess(null);
-
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const headers: Record<string, string> = { ...getAuthHeaders() };
+      const csrfToken = typeof window !== "undefined" ? localStorage.getItem("csrftoken") : null;
+      if (csrfToken) headers["X-CSRFTOKEN"] = csrfToken;
+      headers["accept"] = "application/json";
+      const response = await fetch(
+        `${baseUrl}/gallery/admin/video-audio-edit-requests/${uid}/update-status`,
+        {
+          method: "PATCH",
+          headers,
+          body: JSON.stringify({ request_status: newStatus }),
+        }
+      );
+      if (!response.ok) throw new Error("ステータスの更新に失敗しました");
       setData((prev) => (prev ? { ...prev, request_status: newStatus } : prev));
       setStatusSuccess("ステータスが更新されました");
+    } catch (err: any) {
+      setStatusError(err.message || "予期しないエラーが発生しました");
+    } finally {
       setStatusUpdating(false);
-
-      // Clear success message after 3 seconds
       setTimeout(() => setStatusSuccess(null), 3000);
-    }, 1500);
+    }
   };
 
   const getStatusBadge = (status: string) => {
