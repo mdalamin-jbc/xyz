@@ -715,11 +715,53 @@ const MenuProfile = ({ className })=>{
                                                     lineNumber: 145,
                                                     columnNumber: 23
                                                 }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: async ()=>{
+                                                        closeDropdown();
+                                                        const confirmed = window.confirm("Are you sure you want to cancel your subscription?");
+                                                        if (!confirmed) return;
+                                                        try {
+                                                            const accessToken = ("TURBOPACK compile-time truthy", 1) ? localStorage.getItem("accessToken") : ("TURBOPACK unreachable", undefined);
+                                                            if (!accessToken) {
+                                                                alert("No access token found. Please log in again.");
+                                                                return;
+                                                            }
+                                                            const BASE_URL = "http://15.206.185.80:8000"; // Or import from your constants
+                                                            const CANCEL_URL = `${BASE_URL}/payment/subscription/cancel/`;
+                                                            const response = await fetch(CANCEL_URL, {
+                                                                method: "POST",
+                                                                headers: {
+                                                                    "Authorization": `Bearer ${accessToken}`,
+                                                                    "Content-Type": "application/json"
+                                                                }
+                                                            });
+                                                            if (!response.ok) {
+                                                                let errorMsg = "Failed to cancel subscription.";
+                                                                try {
+                                                                    const errorData = await response.json();
+                                                                    errorMsg = errorData.detail || errorMsg;
+                                                                } catch  {}
+                                                                alert(errorMsg);
+                                                                return;
+                                                            }
+                                                            alert("Subscription cancelled successfully.");
+                                                        } catch (err) {
+                                                            alert("An error occurred while cancelling subscription.");
+                                                        }
+                                                    },
+                                                    className: "block w-full text-left px-4 py-2 text-base text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors duration-150 rounded-lg font-medium",
+                                                    role: "menuitem",
+                                                    children: "Cancel Subscription"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/user/MenuProfile.tsx",
+                                                    lineNumber: 155,
+                                                    columnNumber: 23
+                                                }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "border-t border-gray-100 my-1"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/user/MenuProfile.tsx",
-                                                    lineNumber: 154,
+                                                    lineNumber: 194,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$logout$2f$Logout$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -729,7 +771,7 @@ const MenuProfile = ({ className })=>{
                                                     children: "LogOut"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/user/MenuProfile.tsx",
-                                                    lineNumber: 155,
+                                                    lineNumber: 195,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
@@ -764,7 +806,7 @@ const MenuProfile = ({ className })=>{
                     className: "glass"
                 }, void 0, false, {
                     fileName: "[project]/src/components/user/MenuProfile.tsx",
-                    lineNumber: 167,
+                    lineNumber: 207,
                     columnNumber: 9
                 }, this)
             ]

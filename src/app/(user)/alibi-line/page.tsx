@@ -47,11 +47,42 @@ export default function AlibiLinePage() {
   const formValues = watch();
 
   return (
-    <div className="min-h-screen text-white main_gradient_bg">
+    <div className="min-h-screen text-white main_gradient_bg relative">
       <Menu text="アリバイLINEの依頼" position="left" className="pl-10" />
       <div className="max-w-2xl mt-6 mx-auto">
         {/* Form Container */}
-        <div className="glass-card p-8">
+        <div className="glass-card p-8 relative">
+          {/* Coming Soon Overlay */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(0,0,0,0.6)",
+              zIndex: 10,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              pointerEvents: "all",
+            }}
+          >
+            <span style={{
+              color: "#fff",
+              fontSize: "2rem",
+              fontWeight: "bold",
+              textShadow: "0 2px 8px #000, 0 0 40px #fff2",
+              opacity: 0.95,
+              letterSpacing: 2,
+            }}>
+              Coming Soon
+            </span>
+            <span style={{ color: "#fff", marginTop: 8, fontSize: "1.1rem", opacity: 0.8 }}>
+              This feature is not available yet.
+            </span>
+          </div>
           <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
             {/* Title Section */}
             <div className="space-y-3">

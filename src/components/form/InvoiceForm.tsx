@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { invoiceSchema, type InvoiceFormData } from "@/schemas/invoice";
 import Menu from "../home/Menu";
 import Button from "../ui/Button";
+import jsPDF from "jspdf";
 
 interface InvoiceFormProps {
   onSubmit: (data: InvoiceFormData) => void;
@@ -39,6 +40,16 @@ export default function InvoiceForm({ onSubmit }: InvoiceFormProps) {
 
       onSubmit(data);
       reset();
+
+      // Generate PDF invoice and trigger download
+      const doc = new jsPDF();
+      doc.setFontSize(18);
+      doc.text("ダミー請求書 (Dummy Invoice)", 20, 20);
+      doc.setFontSize(12);
+      doc.text(`発行日 (Issue Date): ${data.issueDate}`, 20, 40);
+      doc.text(`請求先名 (Bill To): ${data.billToName}`, 20, 50);
+      doc.text(`品名 (Product): ${data.productName}`, 20, 60);
+      doc.save("dummy-invoice.pdf");
     } catch (error) {
       setShowError(true);
     } finally {

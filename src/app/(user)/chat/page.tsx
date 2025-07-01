@@ -152,7 +152,39 @@ const ChatMain: React.FC = () => {
   };
 
   return (
-    <div className="main_gradient_bg">
+    <div className="main_gradient_bg relative">
+      {/* Coming Soon Overlay */}
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          background: "rgba(0,0,0,0.6)",
+          zIndex: 1000,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          pointerEvents: "all",
+        }}
+      >
+        <span style={{
+          color: "#fff",
+          fontSize: "2.5rem",
+          fontWeight: "bold",
+          textShadow: "0 2px 8px #000, 0 0 40px #fff2",
+          opacity: 0.95,
+          letterSpacing: 2,
+        }}>
+          Coming Soon
+        </span>
+        <span style={{ color: "#fff", marginTop: 12, fontSize: "1.2rem", opacity: 0.8 }}>
+          This feature is not available yet.
+        </span>
+      </div>
+
       <div className="h-screen flex">
         {/* Sidebar */}
         <ChatSidebar
