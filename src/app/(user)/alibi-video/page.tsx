@@ -162,9 +162,8 @@ const VideoEditingForm: React.FC = () => {
   };
 
   return (
-    <div className="main_gradient_bg">
-      <Menu text="アリバイ動画音声の依頼" position="left" className="pl-10" />
-      <div className="main-gradient-bg min-h-screen p-4">
+    <div className="">
+      <div className="text-white min-h-screen p-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <div className="flex justify-center gap-4 mb-6">
