@@ -47,8 +47,7 @@ export default function AlibiLinePage() {
   const formValues = watch();
 
   return (
-    <div className="min-h-screen text-white main_gradient_bg relative">
-      <Menu text="アリバイLINEの依頼" position="left" className="pl-10" />
+    <div className="min-h-screen text-white  relative">
       <div className="max-w-2xl mt-6 mx-auto">
         {/* Form Container */}
         <div className="glass-card p-8 relative">
@@ -69,17 +68,26 @@ export default function AlibiLinePage() {
               pointerEvents: "all",
             }}
           >
-            <span style={{
-              color: "#fff",
-              fontSize: "2rem",
-              fontWeight: "bold",
-              textShadow: "0 2px 8px #000, 0 0 40px #fff2",
-              opacity: 0.95,
-              letterSpacing: 2,
-            }}>
+            <span
+              style={{
+                color: "#fff",
+                fontSize: "2rem",
+                fontWeight: "bold",
+                textShadow: "0 2px 8px #000, 0 0 40px #fff2",
+                opacity: 0.95,
+                letterSpacing: 2,
+              }}
+            >
               Coming Soon
             </span>
-            <span style={{ color: "#fff", marginTop: 8, fontSize: "1.1rem", opacity: 0.8 }}>
+            <span
+              style={{
+                color: "#fff",
+                marginTop: 8,
+                fontSize: "1.1rem",
+                opacity: 0.8,
+              }}
+            >
               This feature is not available yet.
             </span>
           </div>

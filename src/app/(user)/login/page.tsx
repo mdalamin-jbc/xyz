@@ -124,7 +124,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen main_gradient_bg text-white">
+    <div className="min-h-screen  text-white">
       <main className="flex min-h-screen flex-col items-center justify-center px-4">
         <ToastContainer />
 
