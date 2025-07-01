@@ -7,6 +7,7 @@ import { useUser } from "@/context/AuthContext";
 import LogoutButton from "../logout/Logout";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { subscriptionApiClient } from "@/infrastructure/subscription/subscriptionAPIClient";
 
 interface MenuProfileProps {
   className?: string;
@@ -158,32 +159,12 @@ const MenuProfile: React.FC<MenuProfileProps> = ({ className }) => {
                           const confirmed = window.confirm("Are you sure you want to cancel your subscription?");
                           if (!confirmed) return;
                           try {
-                            const accessToken = typeof window !== "undefined" ? localStorage.getItem("accessToken") : null;
-                            if (!accessToken) {
-                              alert("No access token found. Please log in again.");
-                              return;
-                            }
-                            const BASE_URL = "http://15.206.185.80:8000"; // Or import from your constants
-                            const CANCEL_URL = `${BASE_URL}/payment/subscription/cancel/`;
-                            const response = await fetch(CANCEL_URL, {
-                              method: "POST",
-                              headers: {
-                                "Authorization": `Bearer ${accessToken}`,
-                                "Content-Type": "application/json",
-                              },
-                            });
-                            if (!response.ok) {
-                              let errorMsg = "Failed to cancel subscription.";
-                              try {
-                                const errorData = await response.json();
-                                errorMsg = errorData.detail || errorMsg;
-                              } catch {}
-                              alert(errorMsg);
-                              return;
-                            }
+                            await subscriptionApiClient.cancelSubscription();
                             alert("Subscription cancelled successfully.");
-                          } catch (err) {
-                            alert("An error occurred while cancelling subscription.");
+                          } catch (err: any) {
+                            let errorMsg = "An error occurred while cancelling subscription.";
+                            if (err instanceof Error && err.message) errorMsg = err.message;
+                            alert(errorMsg);
                           }
                         }}
                         className="block w-full text-left px-4 py-2 text-base text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors duration-150 rounded-lg font-medium"
