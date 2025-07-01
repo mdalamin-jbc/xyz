@@ -48,7 +48,7 @@ const RequestDetailsPage: FC<RequestDetailsProps> = ({ params }) => {
           : null;
 
       const response = await fetch(
-        `https://15.206.185.80/gallery/admin/souvenir-requests/${params.id}`,
+        `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests/${params.id}`,
         {
           method: "GET",
           headers: {
@@ -83,7 +83,7 @@ const RequestDetailsPage: FC<RequestDetailsProps> = ({ params }) => {
           : null;
 
       const response = await fetch(
-        `https://15.206.185.80/gallery/admin/souvenir-requests/${request.id}/update`,
+        `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests/${request.id}/update`,
         {
           method: "PUT",
           headers: {
@@ -121,7 +121,7 @@ const RequestDetailsPage: FC<RequestDetailsProps> = ({ params }) => {
           : null;
 
       const response = await fetch(
-        `https://15.206.185.80/gallery/admin/souvenir-requests/${request.id}/notes`,
+        `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests/${request.id}/notes`,
         {
           method: "PUT",
           headers: {

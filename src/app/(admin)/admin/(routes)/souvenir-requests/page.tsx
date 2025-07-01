@@ -47,7 +47,7 @@ const MainComponent: FC = () => {
       params.append("page", currentPage.toString());
       params.append("limit", "10"); // Add pagination limit
 
-      const url = `https://15.206.185.80/gallery/admin/souvenir-requests?${params.toString()}`;
+      const url = `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests?${params.toString()}`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -95,7 +95,7 @@ const MainComponent: FC = () => {
           : null;
 
       const response = await fetch(
-        `https://15.206.185.80/gallery/admin/souvenir-requests/${requestId}/update`,
+        `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests/${requestId}/update`,
         {
           method: "PUT", // Changed from POST to PUT for better REST practices
           headers: {

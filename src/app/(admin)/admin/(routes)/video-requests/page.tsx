@@ -53,7 +53,7 @@ const MainComponent: FC = () => {
       if (selectedStatus && selectedStatus !== "all")
         params.append("status", selectedStatus);
       const response = await fetch(
-        `https://15.206.185.80/gallery/admin/video-audio-edit-requests?${params.toString()}`,
+        `https://api-dev.examplesite.jp/gallery/admin/video-audio-edit-requests?${params.toString()}`,
         {
           method: "GET",
           headers: {

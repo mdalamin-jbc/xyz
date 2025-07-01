@@ -248,7 +248,7 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 __turbopack_context__.s({
     "baseUrl": (()=>baseUrl)
 });
-const baseUrl = "https://15.206.185.80";
+const baseUrl = "https://api-dev.examplesite.jp";
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(module, globalThis.$RefreshHelpers$);
 }

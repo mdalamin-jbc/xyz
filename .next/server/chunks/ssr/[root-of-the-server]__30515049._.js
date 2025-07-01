@@ -239,7 +239,7 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "baseUrl": (()=>baseUrl)
 });
-const baseUrl = "https://15.206.185.80";
+const baseUrl = "https://api-dev.examplesite.jp";
 }}),
 "[project]/src/infrastructure/user/userAPIClient.ts [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
