@@ -3,6 +3,7 @@ import Button from "@/components/admin/ui/Button";
 import React, { useEffect, useState, FormEvent, ChangeEvent, FC } from "react";
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { baseUrl } from "@/constants/baseApi";
 
 // Interfaces
 interface Request {
@@ -47,7 +48,7 @@ const MainComponent: FC = () => {
       params.append("page", currentPage.toString());
       params.append("limit", "10"); // Add pagination limit
 
-      const url = `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests?${params.toString()}`;
+      const url = `${baseUrl}/gallery/admin/souvenir-requests?${params.toString()}`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -95,7 +96,7 @@ const MainComponent: FC = () => {
           : null;
 
       const response = await fetch(
-        `https://api-dev.examplesite.jp/gallery/admin/souvenir-requests/${requestId}/update`,
+        `${baseUrl}/gallery/admin/souvenir-requests/${requestId}/update`,
         {
           method: "PUT", // Changed from POST to PUT for better REST practices
           headers: {

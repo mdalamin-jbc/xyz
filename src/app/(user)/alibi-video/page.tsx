@@ -83,7 +83,7 @@ const VideoEditingForm: React.FC = () => {
       // Use fetch directly, not the current API client method
       const token = localStorage.getItem("accessToken");
       const response = await fetch(
-        "https://api-dev.examplesite.jp/gallery/video-audio-edit-requests",
+        "${baseUrl}/gallery/video-audio-edit-requests",
         {
           method: "POST",
           headers: token ? { Authorization: `Bearer ${token}` } : undefined,
