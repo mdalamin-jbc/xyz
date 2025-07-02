@@ -162,7 +162,7 @@ const VideoEditingForm: React.FC = () => {
   };
 
   return (
-    <div className="">
+    <div className="mt-24">
       <div className="text-white min-h-screen p-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
