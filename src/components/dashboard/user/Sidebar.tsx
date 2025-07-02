@@ -135,7 +135,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="mt-6">
-            <button className="flex items-center w-full px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-500/10 rounded-lg transition-all duration-200 group">
+            <div className="flex items-center w-full px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-500/10 rounded-lg transition-all duration-200 group">
               <LogoutButton
                 className="w-full text-start flex-start justify-start  "
                 variant="glass"
@@ -148,7 +148,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                   <span className="text-sm font-medium">ログアウト</span>
                 </div>
               </LogoutButton>
-            </button>
+            </div>
           </div>
         </nav>
       </div>

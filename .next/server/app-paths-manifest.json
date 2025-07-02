@@ -8,9 +8,12 @@
   "/(admin)/admin/(routes)/video-requests/page": "app/(admin)/admin/(routes)/video-requests/page.js",
   "/(admin)/admin/page": "app/(admin)/admin/page.js",
   "/(user)/alibi-line/page": "app/(user)/alibi-line/page.js",
+  "/(user)/alibi-photos/page": "app/(user)/alibi-photos/page.js",
+  "/(user)/alibi-souvenir/page": "app/(user)/alibi-souvenir/page.js",
   "/(user)/login/page": "app/(user)/login/page.js",
   "/(user)/register/page": "app/(user)/register/page.js",
   "/(user)/user/verify-otp/page": "app/(user)/user/verify-otp/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js"
 }
