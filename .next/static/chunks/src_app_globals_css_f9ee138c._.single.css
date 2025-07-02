@@ -2147,6 +2147,10 @@
     text-align: right;
   }
 
+  .text-start {
+    text-align: start;
+  }
+
   .font-mono {
     font-family: var(--font-mono);
   }
