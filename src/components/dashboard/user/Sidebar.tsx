@@ -18,6 +18,7 @@ import {
   HelpCircle,
   LogOut,
 } from "lucide-react";
+import LogoutButton from "@/components/logout/Logout";
 
 const sidebarMenuItems = [
   { id: 1, title: "ダッシュボード", icon: Home, path: "/" },
@@ -134,13 +135,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="mt-6">
-            <button className="flex items-center w-full px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-500/10 rounded-lg transition-all duration-200 group">
-              <LogOut
-                size={20}
-                className="mr-3 group-hover:scale-110 transition-transform"
-              />
-              <span className="text-sm font-medium">ログアウト</span>
-            </button>
+            <div className="flex items-center w-full px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-500/10 rounded-lg transition-all duration-200 group">
+              <LogoutButton
+                className="w-full text-start flex-start justify-start  "
+                variant="glass"
+              >
+                <div className="flex items-center gap-2">
+                  <LogOut
+                    size={20}
+                    className="mr-3 group-hover:scale-110 transition-transform"
+                  />
+                  <span className="text-sm font-medium">ログアウト</span>
+                </div>
+              </LogoutButton>
+            </div>
           </div>
         </nav>
       </div>

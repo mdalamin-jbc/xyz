@@ -54,13 +54,13 @@ export default function AlibiLinePage() {
           {/* Coming Soon Overlay */}
           <div
             style={{
-              position: "absolute",
+              position: "fixed",
               top: 0,
               left: 0,
               width: "100%",
               height: "100%",
               background: "rgba(0,0,0,0.6)",
-              zIndex: 10,
+              zIndex: 1000,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -71,7 +71,7 @@ export default function AlibiLinePage() {
             <span
               style={{
                 color: "#fff",
-                fontSize: "2rem",
+                fontSize: "2.5rem",
                 fontWeight: "bold",
                 textShadow: "0 2px 8px #000, 0 0 40px #fff2",
                 opacity: 0.95,
@@ -83,14 +83,39 @@ export default function AlibiLinePage() {
             <span
               style={{
                 color: "#fff",
-                marginTop: 8,
-                fontSize: "1.1rem",
+                marginTop: 12,
+                fontSize: "1.2rem",
                 opacity: 0.8,
               }}
             >
               This feature is not available yet.
             </span>
+
+            {/* Back Button */}
+            <button
+              onClick={() => window.history.back()}
+              style={{
+                marginTop: 30,
+                padding: "10px 20px",
+                backgroundColor: "#ffffff22",
+                color: "#fff",
+                border: "1px solid #fff5",
+                borderRadius: "6px",
+                fontSize: "1rem",
+                cursor: "pointer",
+                transition: "background 0.3s",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = "#ffffff33";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = "#ffffff22";
+              }}
+            >
+              ← Back
+            </button>
           </div>
+
           <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
             {/* Title Section */}
             <div className="space-y-3">

@@ -159,8 +159,8 @@ const ChatMain: React.FC = () => {
           position: "fixed",
           top: 0,
           left: 0,
-          width: "100vw",
-          height: "100vh",
+          width: "100%",
+          height: "100%",
           background: "rgba(0,0,0,0.6)",
           zIndex: 1000,
           display: "flex",
@@ -192,6 +192,30 @@ const ChatMain: React.FC = () => {
         >
           This feature is not available yet.
         </span>
+
+        {/* Back Button */}
+        <button
+          onClick={() => window.history.back()}
+          style={{
+            marginTop: 30,
+            padding: "10px 20px",
+            backgroundColor: "#ffffff22",
+            color: "#fff",
+            border: "1px solid #fff5",
+            borderRadius: "6px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            transition: "background 0.3s",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = "#ffffff33";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = "#ffffff22";
+          }}
+        >
+          ← Back
+        </button>
       </div>
 
       <div className="h-screen flex">

@@ -18,6 +18,7 @@ interface Request {
 
 const MainComponent: FC = () => {
   const [requests, setRequests] = useState<Request[]>([]);
+  const [searchRequests, setSearchRequests] = useState<Request[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -192,22 +193,32 @@ const MainComponent: FC = () => {
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 setSelectedStatus(e.target.value)
               }
-              className="w-full sm:w-auto rounded-lg border border-gray-300 px-4 py-2 focus:border-[#357AFF] focus:outline-none focus:ring-1 focus:ring-[#357AFF]"
+              className="w-full sm:w-auto rounded-lg border cursor-pointer border-gray-300 px-4 py-2 focus:border-[#357AFF] focus:outline-none focus:ring-1 focus:ring-[#357AFF]"
             >
-              <option value="all">全てのステータス</option>
-              <option value="pending">未着手</option>
-              <option value="in_progress">作業中</option>
-              <option value="completed">完了</option>
-              <option value="cancelled">キャンセル</option>
+              <option className="cursor-pointer" value="all">
+                全てのステータス
+              </option>
+              <option className="cursor-pointer" value="pending">
+                未着手
+              </option>
+              <option className="cursor-pointer" value="in_progress">
+                作業中
+              </option>
+              <option className="cursor-pointer" value="completed">
+                完了
+              </option>
+              <option className="cursor-pointer" value="cancelled">
+                キャンセル
+              </option>
             </select>
             <div className="flex gap-2">
-              <Button type="submit" className="lg:w-20">
+              <Button type="submit" className="lg:w-20 cursor-pointer">
                 <h4 className="text-center w-full">検索</h4>
               </Button>
               <button
                 type="button"
                 onClick={clearFilters}
-                className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50"
+                className="px-4 py-2 text-sm text-gray-600 cursor-pointer hover:text-gray-800 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
                 クリア
               </button>

@@ -71,7 +71,7 @@ const AlibiPhotos = () => {
   );
 
   return (
-    <div className=" min-h-screen">
+    <div className=" min-h-screen mt-24">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center mt-10 mb-6">
           <h2 className="text-2xl font-bold text-white">ギャラリー</h2>
