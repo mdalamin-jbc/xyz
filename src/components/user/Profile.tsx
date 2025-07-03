@@ -83,7 +83,7 @@ const Profile: React.FC<MenuProfileProps> = ({ className }) => {
         {/* Ensures stacking */}
         <div className="flex items-center justify-center">
           {user && (
-            <div className="relative">
+            <div className="relative z-[9999]">
               <div
                 ref={buttonRef}
                 className="inline-block lg:mr-22 mr-4 relative cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-transparent rounded-full"
@@ -100,7 +100,7 @@ const Profile: React.FC<MenuProfileProps> = ({ className }) => {
                 aria-expanded={isOpen}
                 aria-label="User menu"
               >
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-300 hover:border-blue-400 transition-colors duration-300 bg-gray-100">
+                <div className="w-10 z-[9999] h-10 rounded-full overflow-hidden border-2 border-gray-300 hover:border-blue-400 transition-colors duration-300">
                   <Image
                     src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
                     alt="User Profile"
@@ -119,7 +119,7 @@ const Profile: React.FC<MenuProfileProps> = ({ className }) => {
               {isOpen && (
                 <div
                   ref={dropdownRef}
-                  className="absolute lg:right-22 right-4 mt-2 w-64 origin-top-right rounded-lg bg-white shadow-2xl ring-1 ring-black ring-opacity-10 z-[9999] animate-in fade-in slide-in-from-top-2 duration-200 border border-gray-200/40"
+                  className="absolute  lg:right-22 right-4 mt-2 w-64 origin-top-right rounded-lg bg-white shadow-2xl ring-1 ring-black ring-opacity-10 z-[9999] animate-in fade-in slide-in-from-top-2 duration-200 border border-gray-200/40"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="user-menu-button"
@@ -161,7 +161,10 @@ const Profile: React.FC<MenuProfileProps> = ({ className }) => {
 
                     <div className="border-t border-gray-100 my-1" />
 
-                    <LogoutButton size="md" className="w-full" variant="dark">
+                    <LogoutButton
+                      size="md"
+                      className="w-full z-50 bg-black text-white"
+                    >
                       LogOut
                     </LogoutButton>
                   </div>

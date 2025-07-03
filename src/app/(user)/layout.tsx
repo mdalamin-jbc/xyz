@@ -35,7 +35,7 @@ const UserDashboardLayout = ({ children }: Props) => {
         } h-screen flex flex-col`}
       >
         {!shouldHideUI && (
-          <div className="fixed top-0 left-0 lg:left-[250px] right-0 z-30">
+          <div className="fixed top-0 left-0 lg:left-[250px] right-0 z-[999]">
             <MenuProfile
               text="ユーザーダッシュボード"
               onMenuToggle={handleMenuToggle}
@@ -46,7 +46,7 @@ const UserDashboardLayout = ({ children }: Props) => {
         <main
           className={`mt-[${
             !shouldHideUI ? "80px" : "0"
-          }] overflow-y-auto h-full px-4`}
+          }] overflow-y-auto h-full  px-4`}
         >
           {children}
         </main>

@@ -17,8 +17,11 @@ import {
   Settings,
   HelpCircle,
   LogOut,
+  XCircle,
 } from "lucide-react";
 import LogoutButton from "@/components/logout/Logout";
+import Button from "@/components/ui/Button";
+import { subscriptionApiClient } from "@/infrastructure/subscription/subscriptionAPIClient";
 
 const sidebarMenuItems = [
   { id: 1, title: "ダッシュボード", icon: Home, path: "/" },
@@ -106,7 +109,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               );
             })}
           </ul>
-
           <div className="mt-8 pt-6 border-t border-white/10">
             <ul className="space-y-2">
               {bottomMenuItems.map((item) => {
@@ -137,7 +139,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <div className="mt-6">
             <div className="flex items-center w-full px-4 py-3 text-red-300 hover:text-red-200 hover:bg-red-500/10 rounded-lg transition-all duration-200 group">
               <LogoutButton
-                className="w-full text-start flex-start justify-start  "
+                className="w-full z-50 text-start flex-start justify-start  "
                 variant="glass"
               >
                 <div className="flex items-center gap-2">

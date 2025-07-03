@@ -10,6 +10,8 @@ import { Eye, EyeOff } from "lucide-react";
 import { registerSchema } from "@/schemas/userRegistration";
 import Link from "next/link";
 
+// Zod validation schema
+
 type RegisterFormData = z.infer<typeof registerSchema>;
 
 const RegisterPage = () => {
@@ -21,11 +23,11 @@ const RegisterPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-    trigger,
   } = useForm<RegisterFormData>({
     resolver: zodResolver(registerSchema),
-    mode: "onTouched",
+    mode: "onChange",
   });
+
   const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
     setLoading(true);
     try {
